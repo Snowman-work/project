@@ -23,7 +23,29 @@
 // }
 // console.log(arr[1]); //получаем второй элемент массива по порядку
 
-let category = 'toys';
-// console.log('https://someurl/' + category);
+// let category = 'toys';
+// // console.log('https://someurl/' + category);
 
-console.log(`https://someurl/${category}/specialtoys/dolls/Alexia`);
+// console.log(`https://someurl/${category}/specialtoys/dolls/Alexia`);
+
+//Веб приложение по учету прсомотренных фильмов пользователя
+
+const numberOfFilms = window.prompt('Как много фильмов вы посмотрели?', ''); //создаем переменную и в ней вопрос к юзеру и ответ от него.
+
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actros: {},
+    genres: [],
+    privat: false
+};
+
+const a = window.prompt('Последний просмотренный фильм?', ''),
+      b = window.prompt('Насколько оцениваете его?', ''),
+      c = window.prompt('Последний просмотренный фильм?', ''),
+      d = window.prompt('Насколько оцениваете его?', '');
+
+personalMovieDB.movies[a] = b;  //тут мы в объекте movies создаем свойство с ключом a и присваевыем ему значение b  
+personalMovieDB.movies[c] = d;
+
+console.log(personalMovieDB);
