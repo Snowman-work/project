@@ -58,3 +58,12 @@ function showMyDB(hidden) {
 }
 
 showMyDB(personalMovieDB.privat);
+
+function writeYourGenres() {  //функция которая выводит трижды вопрос вашего любимого жанра и записывает его в массив genres
+    for(let i = 1; i <= 3; i++) { //делаем цикл чтобы трижды задавался вопрос
+        const genre = prompt(`Ваш любимый жанр под номером ${i}`) //переменная genre в которую будет записываться ответ юзера
+        personalMovieDB.genres[i - 1] = genre; //получаем доступ к элементу массива personalMovieDB начиная с 0 для корректного доступа к массиву и сохраняем в него значение из переменной genre
+    }
+}
+
+writeYourGenres()

@@ -201,3 +201,37 @@
 
 // progression(10, 5);
 // console.log(progression(10, 5));
+
+//вычисление площади и объема куба
+function calculateVolumeAndArea(a){
+    let cubeArea = 6 * ( a * a )
+    let cubeVolume = a * a * a
+    if( typeof a !== 'number' || isNaN(a) ){
+        console.log('При вычислении произошла ошибка');
+    } else {
+        return {
+            area: cubeArea,
+        
+            volume: cubeVolume
+
+            // console.log('площадь куба: ' + cubeArea)
+            // console.log('объем куба: ' + cubeVolume)
+        }
+    }
+    
+}
+
+calculateVolumeAndArea(15)
+console.log( calculateVolumeAndArea(20)) //просто выполняем проверку работы выводом в консоль
+
+function calculateSeatNumber(seatNumber){
+    if( typeof seatNumber !== 'number' || isNaN(seatNumber)){
+        console.log('Ошибка. Проверьте правильность введенного номера места')
+    } else if(seatNumber == 0 || seatNumber > 36 || seatNumber < 1){
+        console.log('Таких мест не существует')
+    } else {
+        console.log('Ваше место: ' + Math.ceil(seatNumber / 4))
+    }
+}
+
+calculateSeatNumber(36)
