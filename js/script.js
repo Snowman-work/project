@@ -203,35 +203,89 @@
 // console.log(progression(10, 5));
 
 //вычисление площади и объема куба
-function calculateVolumeAndArea(a){
-    let cubeArea = 6 * ( a * a )
-    let cubeVolume = a * a * a
-    if( typeof a !== 'number' || isNaN(a) ){
-        console.log('При вычислении произошла ошибка');
-    } else {
-        return {
-            area: cubeArea,
+// function calculateVolumeAndArea(a){
+//     let cubeArea = 6 * ( a * a )
+//     let cubeVolume = a * a * a
+//     if( typeof a !== 'number' || isNaN(a) ){
+//         console.log('При вычислении произошла ошибка');
+//     } else {
+//         return {
+//             area: cubeArea,
         
-            volume: cubeVolume
+//             volume: cubeVolume
 
-            // console.log('площадь куба: ' + cubeArea)
-            // console.log('объем куба: ' + cubeVolume)
-        }
+//             // console.log('площадь куба: ' + cubeArea)
+//             // console.log('объем куба: ' + cubeVolume)
+//         }
+//     }
+    
+// }
+
+// calculateVolumeAndArea(15)
+// console.log( calculateVolumeAndArea(20)) //просто выполняем проверку работы выводом в консоль
+
+// function calculateSeatNumber(seatNumber){
+//     if( typeof seatNumber !== 'number' || isNaN(seatNumber)){
+//         console.log('Ошибка. Проверьте правильность введенного номера места')
+//     } else if(seatNumber == 0 || seatNumber > 36 || seatNumber < 1){
+//         console.log('Таких мест не существует')
+//     } else {
+//         console.log('Ваше место: ' + Math.ceil(seatNumber / 4))
+//     }
+// }
+
+// calculateSeatNumber(36)
+
+//Функция принимающая в себя целое число минут и возвращающая время в формате строки.
+function getTimeFromMinutes(amountMinutes){
+
+    if (typeof amountMinutes !== 'number' || amountMinutes < 0 || !Number.isInteger(amountMinutes)) {
+        return 'Ошибка, проверь данные';
+    } //простейшая проверка: если Не число, если меньше нуля, если Не целое число
+
+    let hours = Math.floor(amountMinutes / 60); //округляем в меньшую сторону часы
+    let minutes = amountMinutes % 60; //получаем минуты
+
+    let hoursStr =''; //добавляем склонения
+    let minutesStr = 'минут';
+
+    switch (hours) {
+        case 0:
+            hoursStr = 'Часов';
+            break;
+        case 1:
+            hoursStr = 'Час';
+            break;
+        case 2:
+        case 3:
+        case 4:
+            hoursStr = 'Часа';
+            break;
+        default:
+            hoursStr = 'Часов';            //добавляем склонения через свичкейсы
     }
     
+    return `${hours} ${hoursStr} ${minutes} ${minutesStr}`;
 }
+getTimeFromMinutes(150)
+console.log(getTimeFromMinutes(150));
 
-calculateVolumeAndArea(15)
-console.log( calculateVolumeAndArea(20)) //просто выполняем проверку работы выводом в консоль
-
-function calculateSeatNumber(seatNumber){
-    if( typeof seatNumber !== 'number' || isNaN(seatNumber)){
-        console.log('Ошибка. Проверьте правильность введенного номера места')
-    } else if(seatNumber == 0 || seatNumber > 36 || seatNumber < 1){
-        console.log('Таких мест не существует')
-    } else {
-        console.log('Ваше место: ' + Math.ceil(seatNumber / 4))
+//функция принимающая в себя 4 аргумента и возращающая больший из них
+function sravnenie(a, b, c, d) {
+    if (arguments.length !== 4) { //встроенная штука, показывает, сколько аргументов реально пришло
+        return 0; // Ошибка: аргументов не 4
     }
-}
 
-calculateSeatNumber(36)
+    for (let val of [a, b, c, d]) {
+        if (typeof val !== 'number' || isNaN(val)) {
+            return 0; // Ошибка: не число или NaN
+        }
+    }
+    //for (let переменная of массив) {
+    // действия с переменной
+    //}
+
+    return Math.max(a, b, c, d); // Вернуть самое большое число
+    console.log(Math.max(a, b, c, d))
+}
+console.log(sravnenie( 1, 2, 3, 4));
